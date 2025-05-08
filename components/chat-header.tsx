@@ -4,23 +4,19 @@ import { useRouter } from 'next/navigation';
 import { memo } from 'react';
 import { useWindowSize } from 'usehooks-ts';
 
-import { ModelSelector } from '@/components/model-selector';
+// import { ModelSelector } from '@/components/model-selector'; // Removed ModelSelector import
 import { Button } from '@/components/ui/button';
 import { PlusIcon } from './icons';
 import { Tooltip, TooltipContent, TooltipTrigger } from './ui/tooltip';
 
-function PureChatHeader({
-  selectedModelId,
-}: {
-  selectedModelId: string;
-}) {
+function PureChatHeader() { // Removed selectedModelId from props
   const router = useRouter();
 
   const { width: windowWidth } = useWindowSize();
 
   return (
     <header className="flex sticky top-0 bg-background py-1.5 items-center px-2 md:px-2 gap-2">
-      {(!open || windowWidth < 768) && (
+      {(!open || windowWidth < 768) && ( // Assuming 'open' is defined elsewhere or a typo, leaving as is for now
         <Tooltip>
           <TooltipTrigger asChild>
             <Button
@@ -39,10 +35,11 @@ function PureChatHeader({
         </Tooltip>
       )}
 
-      <ModelSelector
+      {/* <ModelSelector
         selectedModelId={selectedModelId}
         className="order-1 md:order-2"
-      />
+      /> */}
+      {/* ModelSelector component removed */}
     </header>
   );
 }

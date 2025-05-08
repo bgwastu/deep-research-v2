@@ -6,11 +6,7 @@ import { ChatHeader } from '@/components/chat-header';
 import { Messages } from './messages';
 import { MultimodalInput } from './multimodal-input';
 
-export function Chat({
-  selectedModelId,
-}: {
-  selectedModelId: string;
-}) {
+export function Chat() {
   const {
     messages,
     setMessages,
@@ -22,13 +18,12 @@ export function Chat({
     stop,
     reload,
   } = useChat({
-    body: { modelId: selectedModelId },
     experimental_throttle: 100,
   });
 
   return (
     <div className="flex flex-col min-w-0 h-dvh bg-background">
-      <ChatHeader selectedModelId={selectedModelId} />
+      <ChatHeader />
 
       <Messages
         isLoading={isLoading}
