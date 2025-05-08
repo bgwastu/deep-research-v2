@@ -16,7 +16,6 @@ export function PureMessageActions({
   message,
   isLoading,
 }: {
-  chatId: string;
   message: Message;
   isLoading: boolean;
 }) {

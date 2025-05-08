@@ -16,13 +16,11 @@ import { Tooltip, TooltipContent, TooltipTrigger } from './ui/tooltip';
 import { Weather } from './weather';
 
 const PurePreviewMessage = ({
-  chatId,
   message,
   isLoading,
   setMessages,
   reload,
 }: {
-  chatId: string;
   message: Message;
   isLoading: boolean;
   setMessages: (
@@ -138,7 +136,6 @@ const PurePreviewMessage = ({
 
             <MessageActions
               key={`action-${message.id}`}
-              chatId={chatId}
               message={message}
               isLoading={isLoading}
             />

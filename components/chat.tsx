@@ -7,10 +7,8 @@ import { Messages } from './messages';
 import { MultimodalInput } from './multimodal-input';
 
 export function Chat({
-  id,
   selectedModelId,
 }: {
-  id: string;
   selectedModelId: string;
 }) {
   const {
@@ -24,8 +22,7 @@ export function Chat({
     stop,
     reload,
   } = useChat({
-    id,
-    body: { id, modelId: selectedModelId },
+    body: { modelId: selectedModelId },
     experimental_throttle: 100,
   });
 
@@ -34,7 +31,6 @@ export function Chat({
       <ChatHeader selectedModelId={selectedModelId} />
 
       <Messages
-        chatId={id}
         isLoading={isLoading}
         messages={messages}
         setMessages={setMessages}
@@ -43,7 +39,6 @@ export function Chat({
 
       <form className="flex mx-auto px-4 bg-background pb-4 md:pb-6 gap-2 w-full md:max-w-3xl">
         <MultimodalInput
-          chatId={id}
           input={input}
           setInput={setInput}
           handleSubmit={handleSubmit}

@@ -34,7 +34,6 @@ const resetHeight = (ref: React.RefObject<HTMLTextAreaElement>) => {
 };
 
 function PureMultimodalInput({
-  chatId,
   input,
   setInput,
   isLoading,
@@ -45,7 +44,6 @@ function PureMultimodalInput({
   handleSubmit,
   className,
 }: {
-  chatId: string;
   input: string;
   setInput: (value: string) => void;
   isLoading: boolean;
@@ -99,8 +97,6 @@ function PureMultimodalInput({
   };
 
   const submitForm = useCallback(() => {
-    window.history.replaceState({}, '', `/chat/${chatId}`);
-
     handleSubmit(undefined);
 
     setLocalStorageInput('');
@@ -109,7 +105,7 @@ function PureMultimodalInput({
     if (width && width > 768) {
       textareaRef.current?.focus();
     }
-  }, [handleSubmit, setLocalStorageInput, width, chatId]);
+  }, [handleSubmit, setLocalStorageInput, width]);
 
   return (
     <div className="relative w-full flex flex-col gap-4">

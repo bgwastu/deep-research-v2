@@ -7,7 +7,6 @@ import { Overview } from './overview';
 import { useScrollToBottom } from './use-scroll-to-bottom';
 
 interface MessagesProps {
-  chatId: string;
   isLoading: boolean;
   messages: Array<Message>;
   setMessages: (
@@ -19,7 +18,6 @@ interface MessagesProps {
 }
 
 function PureMessages({
-  chatId,
   isLoading,
   messages,
   setMessages,
@@ -38,7 +36,6 @@ function PureMessages({
       {messages.map((message, index) => (
         <PreviewMessage
           key={message.id}
-          chatId={chatId}
           message={message}
           isLoading={isLoading && messages.length - 1 === index}
           setMessages={setMessages}
