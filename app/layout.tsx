@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { Toaster } from "sonner";
 
-import { ThemeProvider } from "@/components/theme-provider";
-
 import "./globals.css";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 export const metadata: Metadata = {
   title: "Deep Research v2",
@@ -22,17 +21,12 @@ export default async function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head></head>
-      <body className="antialiased">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+      <TooltipProvider>
+        <body className="antialiased">
           <Toaster position="top-center" />
           {children}
-        </ThemeProvider>
-      </body>
+        </body>
+      </TooltipProvider>
     </html>
   );
 }
